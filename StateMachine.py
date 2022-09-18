@@ -1,3 +1,8 @@
+# Matthew Delgado
+# ECE 3541: Digital State Machines
+# Module 1: Finite State Machines
+# 09/21/2022
+
 class InitializationError(Exception):
     pass
 
@@ -6,13 +11,16 @@ class StateMachine:
         self.handlers = {} 
         self.startState = None 
         self.endStates = []
-    def add_state(self, name, handler, end_state=0): 
+
+    def add_state(self, name, handler, end_state = 0): 
         name = name.upper()
         self.handlers[name] = handler
         if end_state:
             self.endStates.append(name) 
+
     def set_start(self, name):
         self.startState = name.upper()
+
     def run(self, cargo): 
         try:
             handler = self.handlers[self.startState] 
